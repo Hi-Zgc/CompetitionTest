@@ -7,8 +7,10 @@ MODEL:
     DEFORM_MODULATED: True
     DEFORM_INTERVAL: 3
 SOLVER:
-  STEPS: (280000, 360000)
-  MAX_ITER: 400000
+  IMS_PER_BATCH: 1
+  BASE_LR: 0.0005  # Note that RetinaNet uses a different default learning rate
+  STEPS: (3000, 6000)
+  MAX_ITER: 12000
 INPUT:
   MIN_SIZE_TRAIN: (640, 864)
   MIN_SIZE_TRAIN_SAMPLING: "range"
@@ -16,5 +18,5 @@ INPUT:
   CROP:
     ENABLED: True
 TEST:
-  EVAL_PERIOD: 20000
+  EVAL_PERIOD: 500
 OUTPUT_DIR: "output/blendmask/R_101_dcni3_5x"
